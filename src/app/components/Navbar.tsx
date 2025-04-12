@@ -1,6 +1,7 @@
 "use client";
 import { Menu, Search, ShoppingCart, User, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 export default function Navbar() {
@@ -8,7 +9,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // Close the menu when clicking outside
+  // Close the menu
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -24,21 +25,22 @@ export default function Navbar() {
 
   return (
     <nav className="flex items-center justify-between px-6 py-4 bg-transparent">
-      {/* Left - Logo */}
-      <div className="flex items-center space-x-2">
-        <Image
-          src="/logo.webp"
-          alt="HotWheels Logo"
-          width={40}
-          height={40}
-          className="rounded-full"
-        />
-        <span className="font-medium leading-relaxed font-[prompt] text-lg">
-          HotWheels.io
-        </span>
-      </div>
+      {/* logo */}
+      <Link href="#">
+        <div className="flex items-center space-x-2">
+          <Image
+            src="/logo.webp"
+            alt="HotWheels Logo"
+            width={40}
+            height={40}
+            className="rounded-full"
+          />
+          <span className="font-medium leading-relaxed font-[prompt] text-lg">
+            HotWheels.io
+          </span>
+        </div>
+      </Link>
 
-      {/* Center - Navigation Links */}
       <div className="hidden md:flex text-black relative space-x-16">
         {["Home", "Collection", "Customize", "About"].map((item) => (
           <div
@@ -67,7 +69,7 @@ export default function Navbar() {
         ))}
       </div>
 
-      {/* Right - Icons */}
+      {/* icons */}
       <div className="flex items-center space-x-4 md:space-x-8 text-black">
         <Search className="w-5 h-5 md:w-7 md:h-7 font-bold cursor-pointer hover:text-orange-600 transition-all duration-300" />
         <ShoppingCart className="w-5 h-5 md:w-7 md:h-7 font-bold cursor-pointer hover:text-orange-600 transition-all duration-300" />
@@ -84,7 +86,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Menu */}
       {isMenuOpen && (
         <div
           ref={menuRef}

@@ -13,7 +13,6 @@ const Card2: React.FC<CardProps> = ({ link, title, content, classname }) => {
     <div
       className={`hover:scale-95 transition-all duration-150 cursor-pointer bg-white shadow-lg flex flex-col rounded-3xl overflow-hidden ${classname}`}
     >
-      {/* Image Section */}
       <Image
         src={link}
         width={400}
@@ -22,7 +21,6 @@ const Card2: React.FC<CardProps> = ({ link, title, content, classname }) => {
         className="object-cover md:w-[400px] md:h-[450px]"
       />
 
-      {/* Gradient Text Content Section */}
       <div className="p-4 bg-gradient-to-r from-[#FFB703] to-[#FFE300]">
         <div className="font-[prompt] font-[400] text-[24px] leading-tight tracking-[0.05em]   text-white">
           {title}

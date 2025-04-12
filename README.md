@@ -1,10 +1,8 @@
-# A project for ESOC-UI2Code
+# ESOC-UI2Code
 
 **Link to deployment:** https://aOSxBB.vercel.app
 
-**Hot Wheels** is a
-
-## Creators
+## Creators:
 
 - **aOS** - Developer
 - **Bindaas Bhide** - Designer
@@ -21,5 +19,9 @@
 
 ## Features
 
-- Responsive design with Tailwind CSS.
-- Modular and scalable architecture.
+- Seamless deployment with **Vercel**.
+- **Responsive Design**: Built with Tailwind CSS for a fully responsive and mobile-friendly UI.
+- **Reusable Components**: Modular and reusable components for scalability and maintainability.
+- Clear and Readable Code.
+- Enforced coding standards with linting tools for consistent code.
+- **Modular and Scalable Architecture**: Designed for easy scalability.

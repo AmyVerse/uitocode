@@ -15,9 +15,8 @@ export default function Footer() {
         </div>
         <hr className="my-4 rounded-lg border-[1.5px]" />
 
-        {/* Footer Sections */}
+        {/* Footer */}
         <div className="my-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Company Section */}
           <div>
             <div className="font-inter mb-6 md:mb-10 text-[1.5rem] md:text-[1.8rem] font-[400]">
               Company
@@ -90,7 +89,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Products Section */}
           <div>
             <div className="font-inter mb-6 md:mb-10 text-[1.5rem] md:text-[1.8rem] font-[400]">
               Products
@@ -139,7 +137,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Global Citizenship Section */}
           <div>
             <div className="font-inter mb-6 md:mb-10 text-[1.5rem] md:text-[1.8rem] font-[400]">
               Global Citizenship
@@ -165,7 +162,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* App Store Links */}
         <div className="mt-8 flex flex-col md:flex-row items-center md:justify-between gap-4">
           <div className="flex flex-col md:flex-row gap-4">
             <a
@@ -192,7 +188,6 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Social Media Links */}
           <div className="flex items-center gap-6">
             <a
               href="https://facebook.com"

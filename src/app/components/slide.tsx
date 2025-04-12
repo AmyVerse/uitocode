@@ -19,7 +19,7 @@ export default function Slide() {
         Own the whole Lineup
       </div>
 
-      {/* Cards Section */}
+      {/* Cards */}
       <div className="px-4 md:px-16 py-8 flex flex-col md:flex-row gap-8 items-center">
         <Card
           link="/hotwheels.webp"

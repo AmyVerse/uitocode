@@ -11,7 +11,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ link, title, price, classname }) => {
   return (
     <div
-      className={`border-[11px] p-8 mx-2 border-[#FFB703] rounded-[43px] flex flex-col flex-wrap align-middle ${classname} `}
+      className={`cursor-pointer hover:scale-95 transition-all duration-100 border-[11px] p-8 mx-2 border-[#FFB703] rounded-[43px] flex flex-col flex-wrap align-middle ${classname} `}
       style={{
         background: "linear-gradient(to bottom, #023047 43%, #219EBC 57%)",
       }}
