@@ -1,5 +1,5 @@
-import React from "react";
 import Image from "next/image";
+import React from "react";
 
 interface CardProps {
   link: string;
@@ -11,22 +11,22 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ link, title, price, classname }) => {
   return (
     <div
-      className={`border-[13px] p-8 border-[#FFB073] rounded-lg flex flex-col flex-wrap align-middle ${classname} `}
+      className={`border-[11px] p-8 mx-2 border-[#FFB703] rounded-[43px] flex flex-col flex-wrap align-middle ${classname} `}
       style={{
         background: "linear-gradient(to bottom, #023047 43%, #219EBC 57%)",
       }}
     >
       <Image
         src={link}
-        width={200}
-        height={200}
         alt="Card Image"
-        className="rounded-t-lg h-3/5 w-full object-cover"
+        width={300}
+        height={350}
+        className="rounded-t-lg mb-4 h-[400px] w-[400px] object-cover"
       />
-      <div className="text-white leading-tight tracking-[0.05em] font-[800] font-prompt">
+      <div className="text-white text-center leading-tight tracking-[0.05em] font-[800] font-[prompt]">
         {title}
       </div>
-      <div className="text-white leading-tight tracking-[0.05em] font-[300] font-inter">
+      <div className="text-white text-center leading-tight tracking-[0.05em] font-[300] font-inter">
         {price}
       </div>
     </div>

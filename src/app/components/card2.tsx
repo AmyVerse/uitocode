@@ -11,7 +11,7 @@ interface CardProps {
 const Card2: React.FC<CardProps> = ({ link, title, content, classname }) => {
   return (
     <div
-      className={`max-w-[30vw] hover:scale-95 transition-all duration-150 cursor-pointer bg-white shadow-lg flex flex-col rounded-lg overflow-hidden ${classname}`}
+      className={`hover:scale-95 transition-all duration-150 cursor-pointer bg-white shadow-lg flex flex-col rounded-3xl overflow-hidden ${classname}`}
     >
       {/* Image Section */}
       <Image
@@ -19,15 +19,15 @@ const Card2: React.FC<CardProps> = ({ link, title, content, classname }) => {
         width={400}
         height={450}
         alt="Card Image"
-        className="object-cover w-[400px] h-[450px]"
+        className="object-cover md:w-[400px] md:h-[450px]"
       />
 
       {/* Gradient Text Content Section */}
       <div className="p-4 bg-gradient-to-r from-[#FFB703] to-[#FFE300]">
-        <div className="font-prompt font-[400] text-[24px] leading-tight tracking-[0.05em]   text-white">
+        <div className="font-[prompt] font-[400] text-[24px] leading-tight tracking-[0.05em]   text-white">
           {title}
         </div>
-        <div className="font-prompt font-[400] text-[14px] leading-tight tracking-[0.05em] text-white mt-1">
+        <div className="font-[prompt] font-[400] text-[14px] leading-tight tracking-[0.05em] text-white mt-1">
           {content}
         </div>
       </div>

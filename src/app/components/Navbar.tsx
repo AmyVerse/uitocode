@@ -1,15 +1,31 @@
 "use client";
-import { Search, ShoppingCart, User } from "lucide-react";
+import { Menu, Search, ShoppingCart, User, X } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Navbar() {
   const [activeTab, setActiveTab] = useState("Home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Close the menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
-    <nav className="flex items-center justify-between px-10 py-4 bg-transparent">
+    <nav className="flex items-center justify-between px-6 py-4 bg-transparent">
       {/* Left - Logo */}
-      <div className="flex text-black items-center space-x-2">
+      <div className="flex items-center space-x-2">
         <Image
           src="/logo.webp"
           alt="HotWheels Logo"
@@ -23,7 +39,7 @@ export default function Navbar() {
       </div>
 
       {/* Center - Navigation Links */}
-      <div className="text-black relative flex space-x-16">
+      <div className="hidden md:flex text-black relative space-x-16">
         {["Home", "Collection", "Customize", "About"].map((item) => (
           <div
             key={item}
@@ -52,20 +68,50 @@ export default function Navbar() {
       </div>
 
       {/* Right - Icons */}
-      <div className="flex space-x-8 text-black">
-        <Search
-          className="w-7 h-7 font-bold cursor-pointer hover:text-orange-600 transition-all duration-300"
-          onClick={() => console.log("Search clicked")}
-        />
-        <ShoppingCart
-          className="w-7 h-7 font-bold cursor-pointer hover:text-orange-600 transition-all duration-300"
-          onClick={() => console.log("ShoppingCart clicked")}
-        />
-        <User
-          className="w-7 h-7 font-bold cursor-pointer hover:text-orange-600 transition-all duration-300"
-          onClick={() => console.log("User clicked")}
-        />
+      <div className="flex items-center space-x-4 md:space-x-8 text-black">
+        <Search className="w-5 h-5 md:w-7 md:h-7 font-bold cursor-pointer hover:text-orange-600 transition-all duration-300" />
+        <ShoppingCart className="w-5 h-5 md:w-7 md:h-7 font-bold cursor-pointer hover:text-orange-600 transition-all duration-300" />
+        <User className="hidden md:block w-5 h-5 md:w-7 md:h-7 font-bold cursor-pointer hover:text-orange-600 transition-all duration-300" />
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="text-black focus:outline-none md:hidden"
+        >
+          {isMenuOpen ? (
+            <X className="w-5 h-5" />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div
+          ref={menuRef}
+          className="absolute top-24 right-4 w-1/2 rounded-2xl bg-white shadow-lg z-50 transform"
+        >
+          <ul className="flex flex-col items-center space-y-4 py-4">
+            {["Home", "Collection", "Customize", "About", "My Account"].map(
+              (item) => (
+                <li
+                  key={item}
+                  onClick={() => {
+                    setActiveTab(item);
+                    setIsMenuOpen(false);
+                  }}
+                  className={`cursor-pointer text-black font-medium font-[prompt] ${
+                    activeTab === item
+                      ? "text-orange-500"
+                      : "hover:text-orange-600"
+                  }`}
+                >
+                  {item}
+                </li>
+              )
+            )}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }
