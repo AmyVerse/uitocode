@@ -8,21 +8,26 @@ interface CardProps {
   classname?: string;
 }
 
-const Card: React.FC<CardProps> = ({ link, title, content, classname }) => {
+const Card2: React.FC<CardProps> = ({ link, title, content, classname }) => {
   return (
     <div
-      className={`max-h-[30vh] max-w-[30vw] bg-gradient-radial from-[#FFB703] to-[#FFE300]  flex flex-col justify-start ${classname}`}
+      className={`max-w-[30vw] hover:scale-95 transition-all duration-150 cursor-pointer bg-white shadow-lg flex flex-col rounded-lg overflow-hidden ${classname}`}
     >
+      {/* Image Section */}
       <Image
         src={link}
+        width={400}
+        height={450}
         alt="Card Image"
-        className="rounded-t-lg h-[665px] w-[590px] object-cover"
+        className="object-cover w-[400px] h-[450px]"
       />
-      <div className="p-4 ">
-        <div className="font-prompt font-[400] text-[24px] leading-tight tracking-[0.05em] text-black">
+
+      {/* Gradient Text Content Section */}
+      <div className="p-4 bg-gradient-to-r from-[#FFB703] to-[#FFE300]">
+        <div className="font-prompt font-[400] text-[24px] leading-tight tracking-[0.05em]   text-white">
           {title}
         </div>
-        <div className="font-prompt font-[400] text-[14px] leading-tight tracking-[0.05em] text-black">
+        <div className="font-prompt font-[400] text-[14px] leading-tight tracking-[0.05em] text-white mt-1">
           {content}
         </div>
       </div>
@@ -30,4 +35,4 @@ const Card: React.FC<CardProps> = ({ link, title, content, classname }) => {
   );
 };
 
-export default Card;
+export default Card2;

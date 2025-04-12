@@ -18,6 +18,8 @@ const Card: React.FC<CardProps> = ({ link, title, price, classname }) => {
     >
       <Image
         src={link}
+        width={200}
+        height={200}
         alt="Card Image"
         className="rounded-t-lg h-3/5 w-full object-cover"
       />
@@ -30,3 +32,5 @@ const Card: React.FC<CardProps> = ({ link, title, price, classname }) => {
     </div>
   );
 };
+
+export default Card;
