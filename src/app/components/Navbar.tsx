@@ -23,30 +23,30 @@ export default function Navbar() {
       </div>
 
       {/* Center - Navigation Links */}
-      <div className="text-black flex space-x-16">
+      <div className="text-black relative flex space-x-16">
         {["Home", "Collection", "Customize", "About"].map((item) => (
           <div
             key={item}
-            onClick={() => setActiveTab(item)} // Update active tab on click
-            className={`relative text-md font-medium font-[prompt] cursor-pointer transition-all duration-300 ${
-              activeTab === item ? "text-white" : "hover:text-orange-600"
-            }`}
+            onClick={() => setActiveTab(item)}
+            className="relative cursor-pointer"
           >
-            <span
-              className={`absolute inset-0 rounded-lg bg-orange-500 h-20 w-full px-10 transition-all duration-300 ${
+            <div
+              className={`absolute -top-16 left-1/2 -translate-x-1/2 h-24 w-24 transition-all duration-300 ${
                 activeTab === item
-                  ? "opacity-100 scale-100 text-white"
-                  : "opacity-0 scale-75"
+                  ? "bg-orange-500 px-10 rounded-b-lg shadow-lg"
+                  : "opacity-0"
               }`}
-            ></span>
-            <span
-              className={`absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl font-bold uppercase text-orange-200 pointer-events-none ${
-                activeTab === item ? "opacity-20" : "opacity-0"
-              } transition-opacity duration-300`}
+            ></div>
+
+            <div
+              className={`relative z-10 text-center text-black font-medium font-[prompt] transition-all duration-300 ${
+                activeTab === item
+                  ? "text-white"
+                  : "text-black hover:text-orange-600"
+              }`}
             >
               {item}
-            </span>
-            {item}
+            </div>
           </div>
         ))}
       </div>
